@@ -1,0 +1,90 @@
+Seção I(Introdução) - onde ensinou a criar a primeira aplicação usando Vuejs, após isso evoluímos a aplicação,
+e também fala sobre as ferramentas(IDEs) que podemos utilizar para criar o projeto.
+
+Seção II - Dominando os princípios
+	
+
+Entendendo sobre o VueJS:
+Nesta aula entendi que o Vuejs é um framework progressivo, ou seja, você pode começar desde uma aplicação simples,
+e a evoluindo. E também é utilizado para desenvolver mult ou single page(ou seja de uma única ou múltiplas páginas).
+Há componentização reutilizáveis e cada uma com seu HTML,CSS e JS, sendo reesposáveis por renderizar aquela porção
+da página.
+É acessível, versátil e performático.
+Sendo assim: desde de uma aplicação simples, e adotando uma forma incremental, resultando em um framework com
+completo, e sua performance sendo rápida e com esforços mínimos para otimizações(que irei aprender mais a fundo
+nas próximas aulas).
+
+	
+Entendendo os templates do Vue:
+Pelo que eu entendi nessa aula o Vuejs cria uma cópia do html, fazendo uma estrutura para poder manipulá-lo e
+por meio dela faz o x final.
+
+
+Como a instância Vue se conecta ao template:
+A conexão é através da instância Vue que por sua vez ao indicar na prop EL(element -> por meio de um seletor
+css) qual o elemento do template que será manipulado.
+O Vue faz todo o processo internamente para o elemento entender as propriedades que foi definidas na
+instância e ser chamadas(invocadas) e isso vale também para funções do methods.
+
+
+	
+Acessando dados da instância Vue internamente:
+Diferente de acessar os dados pelo template que é a forma 'diretamente' (usando a interpolação? e inserindo
+dentro do mesmo o nome da prop ou method()), de forma internamente utilizamos o this para acessar as props
+ou methods da nossa instancia Vue.
+Perguntas que fiz ao professor do curso:
+O que é fazer um proxy na instância do vue(pois fazendo isso podemos acessar por via do this a prop
+ou method)?
+R: Ñ respondida
+Tanto a prop ou method diretamente é entendido por conta da interpolação no element?
+R: Ñ respondida
+
+
+Data Binding em atributos ou ligação de dados:
+Utilizando o que chamamos de interpolação de Strings(que seria abrir e fechar chaves 2x,e entre essas
+chaves passar o nome da prop/method que você quer exibir no DOM).
+Isso serve para imprimir valores no DOM.
+A interpolação em atributo do element, ñ é mais permitida. Por isso para fazer o data binding em
+atributos precisamos usar a diretiva do vue v-bind(passando por parâmetro ' : ' o nome do atributo)
+e o vue começa a monitorar essa prop. Neste casso não é usado a interpolação, pode passar diretamente
+o nome da prop/method.
+EX: v-bind:href="docs"/v-bind = diretiva/href = atributo nativo/docs = prop do data ou uma função
+do method(que passaria -> docs() com os parênteses para reconhecer que é uma função)
+
+
+Usando diretivas:
+O que é uma diretiva?  Um atributo especial pré-fixado com 'v-'.
+pré-fixado v-
+nome da diretiva ex: bind
+passar o atributo por parâmetro usando ':' e o nome do atributo ex: href
+valor do parâmetro ="docs"
+= v-bind:href="docs"
+O objetivo de uma diretiva é aplicar efeitos colaterais(o vai apresentar) ao DOM sempre que a expressão
+que eu passar a ela, for alterada. As diretivas geralmente esperam como valor uma simples expressão JS.
+E pode-se criar uma diretiva personalizada, caso necessário.
+
+
+Desabilitando novas renderizações com v-once:
+Neste exemplo foi utilizado a diretiva v-once para desabilitar a renderização de um valor no elemento
+caso ele for modificado.
+No caso da primeira renderização com a diretiva v-onde o valor se torna estático, e o outro elemento
+que foi renderizado pela segunda vez sem a diretiva, ficará com o valor modificado.
+
+
+1.Exibindo HTML puro/2.Manipulando eventos/3.Entendendo o objeto Event:
+1. Na prop ao passar seu valor do tipo string, se um dos valores possui tags do html, o vue irá interpretar
+como se fosse texto puro. Evitando ataques cross-site(xss).
+Porém se você quiser que o vue entenda que um dos valores da prop é tag, no elemento que irá receber esse
+valor inserir a diretiva v-html e então esse valor irá exibir conforme o esperado com texto e as tags.
+2. A diretiva pode manipular os eventos, uns do eventos tem o click e entre outros.
+3. O objeto event é criado por default pelo Vanilla(JS puro). Esse objeto guarda algumas informações sobre
+o evento que está acontecendo.
+
+
+Passando seus próprios argumentos junto com o evento:
+Para passar seus args na função aonde é invocada, precisa declarar dentro do parêntese(ex: myfunction('alexia', $event))
+tanto um valor defino sem prop ou com valor defino em prop. E na sua função dentro do methods precisa tbm declarar
+os args no parêntese para poder capturar o valor que é definido onde sua função está sendo invocada.
+Para passar o objeto event na função aonde está sendo invocada o vue define uma variável -> $event
+
+
