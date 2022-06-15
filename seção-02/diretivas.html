@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>    
+    <meta charset="UTF-8">
+    <title>Vue JS - Guia Completo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Diretiva v-once desabilita redenrizações no elementos-->
+        <p v-once>Nome inteiro: {{ nome }}</p>
+        <p>Nome: {{ getNome() }}</p>
+    </div>
+
+    <script>
+        //Instância Vue 
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Aléxia Vitória M. Pereira'
+            },
+            methods: {
+                getNome: function(){
+                    this.nome = 'Aléxia';
+                    return this.nome;
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

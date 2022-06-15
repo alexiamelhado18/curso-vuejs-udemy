@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>    
+    <meta charset="UTF-8">
+    <title>Vue JS - Guia Completo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- acessando dados diretamente por meio da interpolação -->
+        <p>Curso: {{ curso }} | {{ nomeDoInstrutor() }}</p>
+    </div>
+
+    <script>
+        //Instância Vue 
+        new Vue({
+            el: '#app',
+            data: {
+                curso: 'VueJS',
+                instrutor: 'Aléxia Vitória'
+            },
+            methods: {
+                nomeDoInstrutor: function () {
+                    //acessando dado internamente por meio do this
+                    return this.instrutor;
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
